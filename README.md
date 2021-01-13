@@ -1,21 +1,21 @@
 # テーブル設計
 
 ## usersテーブル
-| Column             | Type    | Options     |
-| ------------------ | ------- | ----------- |
-| nickname           | string  | null: false |
-| email              | string  | null: false |
-| encrypted_password | string  | null: false |
-| last_name          | string  | null: false |
-| first_name         | string  | null: false |
-| last_name_kana     | string  | null: false |
-| first_name_kana    | string  | null: false |
-| birth_date         | date    | null: false |
+| Column             | Type    | Options                  |
+| ------------------ | ------- | ------------------------ |
+| nickname           | string  | null: false              |
+| email              | string  | null: false unique: true |
+| encrypted_password | string  | null: false              |
+| last_name          | string  | null: false              |
+| first_name         | string  | null: false              |
+| last_name_kana     | string  | null: false              |
+| first_name_kana    | string  | null: false              |
+| birth_date         | date    | null: false              |
 
 ### Association
 
 - has_many :items
-- has_many :purchase_history
+- has_many :purchases_histories
 
 ## itemsテーブル
 | Column                 | Type    | Options           |
@@ -28,7 +28,7 @@
 | scheduled_delivery_id  | integer | null: false       |
 | price                  | integer | null: false       |
 | user_id                | integer | foreign_key: true |
-| description of item    | string  | null: false       |
+| description            | string  | null: false       |
 
 ### Association
 
@@ -44,8 +44,8 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :items
-- has_one :charges
+- belongs_to :item
+- has_one :charge
 
 ## chargesテーブル
 | Column              | Type    | Options           |
