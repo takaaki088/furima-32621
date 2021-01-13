@@ -15,7 +15,7 @@
 ### Association
 
 - has_many :items
-- has_many :purchase_history
+- belongs_to :purchase_history
 
 ## itemsテーブル
 | Column                 | Type    | Options     |
@@ -32,8 +32,8 @@
 
 ### Association
 
-- belongs_to :users
-- belongs_to :purchase_history
+- has_many :users
+- has_one :purchase_history
 
 ## purchase_historyテーブル
 | Column  | Type    | Options     |
@@ -43,16 +43,16 @@
 
 ### Association
 
-- belongs_to :users
-- belongs_to :items
-- belongs_to :charges
+- has_many :users
+- has_many :items
+- has_one :charges
 
 ## chargesテーブル
 | Column              | Type    | Options      |
 | ------------------- | --------| ------------ |
 | postal_code         | string  | null :false  |
 | prefecture_id       | integer | null :false  |
-| city                | integer | null :false  |
+| city                | string  | null :false  |
 | addresses           | string  | null :false  |
 | building            | string  |              |
 | phone_number        | string  | null :false  |
