@@ -28,7 +28,7 @@
 | scheduled_delivery_id  | integer | null: false       |
 | price                  | integer | null: false       |
 | user_id                | integer | foreign_key: true |
-| description            | string  | null: false       |
+| description            | text    | null: false       |
 
 ### Association
 
